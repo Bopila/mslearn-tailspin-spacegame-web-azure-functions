@@ -81,14 +81,14 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'bopila - Tailspin - Space - Game'
+              azureSubscription: 'Bopila Azure Resource Manager'
               appName: '$(WebAppName)'
               appType: webAppLinux
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
           - task: AzureFunctionApp@1
             displayName: 'Azure Function Deploy: leaderboard'
             inputs:
-              azureSubscription: 'bopila - Tailspin - Space - Game'
+              azureSubscription: 'Bopila Azure Resource Manager'
               appType: functionAppLinux
               appName: '$(LeaderboardAppName)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.LeaderboardFunction.zip'
@@ -97,7 +97,7 @@ stages:
           - task: AzureAppServiceSettings@1
             displayName: 'Update web app settings'
             inputs:
-              azureSubscription: 'bopila - Tailspin - Space - Game'
+              azureSubscription: 'Bopila Azure Resource Manager'
               appName: $(WebAppName)
               resourceGroupName: $(ResourceGroupName)
               appSettings: |
