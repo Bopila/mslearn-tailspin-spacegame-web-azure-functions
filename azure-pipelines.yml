@@ -17,7 +17,7 @@ stages:
       dotnetSdkVersion: '3.x'
 
     steps:
-    - script: sudo apt install -y nodejs npm && sudo npm install -g gulp-cli
+    - script: sudo apt update && sudo apt install -y nodejs npm && sudo npm install -g gulp-cli
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
